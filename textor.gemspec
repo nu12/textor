@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Textor::VERSION
   s.authors     = ["Alysson A Costa"]
   s.email       = ["alysson.avila.costa@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Textor."
-  s.description = "TODO: Description of Textor."
+  s.homepage    = "http://www.github.com/nu12/textor"
+  s.summary     = "Textor is a Rails Engine to create TeX documents structure within a Rails application."
+  s.description = "Textor is a Rails Engine to create TeX documents structure within a Rails application."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 5.2.0.rc1"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails"
 end
