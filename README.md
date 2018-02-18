@@ -1,14 +1,24 @@
 # Textor
-Short description and motivation.
+Textor is a Rails Engine to create TeX documents structure within Rails apps.
 
 ## Usage
-How to use my plugin.
+Run `$ rails db:migrate` to have the following Models available:
+* Paper
+* Template
+* Section
+* Field
+
+A User model (and users table) must be available.
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'textor'
+gem "textor"
+
+# or
+
+gem "textor", :github => "nu12/textor"
 ```
 
 And then execute:
