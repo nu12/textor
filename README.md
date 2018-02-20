@@ -5,10 +5,6 @@ Textor is a Rails Engine to create TeX documents structure within Rails apps.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "textor"
-
-# or
-
 gem "textor", :github => "nu12/textor"
 ```
 
@@ -17,18 +13,20 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install textor
-```
-
 ## Usage
 Run `$ rails db:migrate` to have the lastest migration.
 
 ## Contributing
-* Clone this repositoy with `$ git clone https://github.com/nu12/textor.git`
-* Run tests to see what need to be implemented with `$ rspec`
+
+You can contribute writing pending tests, implementing new functions, refactoring working code or resolving opened issues.
+
+### How to
+* Fork and clone the repository
+* Run `$ bundle` to install dependencies
+* Run tests with `$ rspec` to see what need to be done
+* Write your code
 * Commit and push changes
+* Open a pull request
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
