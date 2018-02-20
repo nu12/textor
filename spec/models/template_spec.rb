@@ -48,32 +48,87 @@ RSpec.describe Template, type: :model do
   end
 
   describe "error messages" do
-  	describe "locale :en" do
-	  it ":name (presence)" do
-  	    skip("Not yetimplemented")
+    before(:each) do
+      @template.name = "Dummy name"
+      @template.description = "Dummy description"
+      @template.is_active = false
+    end
+  	describe ":en" do
+      before(:all) do
+        I18n.default_locale = :en
+      end
+	   it ":name (presence)" do
+        @template.name = ""
+  	    @template.save
+        expect(@template.errors[:name][0]).to eq("Template name is missing.")
   	  end
   
   	  it ":name (uniqueness)" do
-  	    skip("Not yetimplemented")
+        Template.new({:name => "Dummy name"}).save(validate: false)
+  	    @template.save
+        expect(@template.errors[:name][0]).to eq("This Template name is already taken.")
   	  end
   
   	  it ":description" do
-  	    skip("Not yetimplemented")
+        @template.description = ""
+  	    @template.save
+        expect(@template.errors[:description][0]).to eq("Template description is missing.")
   	  end
     end
 
-    describe "locale :pt" do
-	  it ":name (presence)" do
-  	    skip("Not yetimplemented")
+    describe ":pt" do
+      before(:all) do
+        I18n.default_locale = :pt
+      end
+	    it ":name (presence)" do
+        @template.name = ""
+  	    @template.save
+        expect(@template.errors[:name][0]).to eq("Nome para o Template é obrigatório.")
   	  end
   
   	  it ":name (uniqueness)" do
-  	    skip("Not yetimplemented")
+        Template.new({:name => "Dummy name"}).save(validate: false)
+  	    @template.save
+        expect(@template.errors[:name][0]).to eq("Já existe um Template com esse nome.")
   	  end
   
   	  it ":description" do
-  	    skip("Not yetimplemented")
+        @template.description = ""
+  	    @template.save
+        expect(@template.errors[:name][0]).to eq("Descrição para o Template é obrigatória.")
   	  end
     end
   end
+
+  describe "relationships" do
+    describe "empty" do
+      it ".papers (empty)" do
+        expect(@template.papers).to eq([])
+      end
+      it ".sections (empty)" do
+        expect(@template.sections).to eq([])
+      end
+    end
+
+    describe "one" do
+      it ".papers (empty)" do
+        skip("Not yet implemented")
+      end
+      it ".sections (empty)" do
+        skip("Not yet implemented")
+      end
+    end
+
+    describe "many" do
+      it ".papers (empty)" do
+        skip("Not yet implemented")
+      end
+      it ".sections (empty)" do
+        skip("Not yet implemented")
+      end
+    end
+
+
+  end
+  
 end
