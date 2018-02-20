@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     textor (0.1.0)
-      rails (~> 5.2.0.rc1)
+      rails (>= 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -138,6 +138,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rails (~> 5.2.0.rc1)
   rspec-rails
   sqlite3
   textor!
