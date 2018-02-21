@@ -1,4 +1,4 @@
-class CreateTemplates < ActiveRecord::Migration[5.2]
+class CreateTemplates < ActiveRecord::Migration["#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}"]
   def change
     create_table :templates do |t|
       t.string :name
