@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_24_141558) do
+ActiveRecord::Schema.define(version: 2018_02_24_141730) do
+
+  create_table "fields", force: :cascade do |t|
+    t.string "name"
+    t.string "label"
+    t.boolean "is_multivalue"
+    t.string "default"
+    t.string "open_tag"
+    t.string "close_tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sections", force: :cascade do |t|
     t.string "name"
