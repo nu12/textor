@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_24_141730) do
+ActiveRecord::Schema.define(version: 2018_02_24_141827) do
 
   create_table "fields", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2018_02_24_141730) do
     t.string "close_tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "section_fields", force: :cascade do |t|
+    t.integer "section_id"
+    t.integer "field_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_id"], name: "index_section_fields_on_field_id"
+    t.index ["section_id"], name: "index_section_fields_on_section_id"
   end
 
   create_table "sections", force: :cascade do |t|
