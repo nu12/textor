@@ -90,7 +90,13 @@ RSpec.describe Template, type: :model do
   end
 
   describe "associations" do
-    it {should have_many(:papers)}
-    it {should have_many(:sections)}
+    #Should matchers not working for ApplicationRecord objects
+    #it{should have_many(:papers)}
+    it "papers" do
+      expect(@template.papers).to be_a_kind_of(ActiveRecord::Associations::CollectionProxy)
+    end
+    it "sections" do
+      expect(@template.sections).to be_a_kind_of(ActiveRecord::Associations::CollectionProxy)
+    end
   end
 end
