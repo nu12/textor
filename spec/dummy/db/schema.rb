@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_18_192232) do
+ActiveRecord::Schema.define(version: 2018_02_24_141558) do
+
+  create_table "sections", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_editable"
+    t.boolean "is_wysiwyg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "template_sections", force: :cascade do |t|
+    t.integer "template_id"
+    t.integer "section_id"
+    t.integer "position"
+    t.boolean "is_mandatory"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_template_sections_on_section_id"
+    t.index ["template_id"], name: "index_template_sections_on_template_id"
+  end
 
   create_table "templates", force: :cascade do |t|
     t.string "name"
