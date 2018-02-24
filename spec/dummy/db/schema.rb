@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_24_142002) do
+ActiveRecord::Schema.define(version: 2018_02_24_142041) do
+
+  create_table "contents", force: :cascade do |t|
+    t.integer "paper_id"
+    t.integer "field_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_id"], name: "index_contents_on_field_id"
+    t.index ["paper_id"], name: "index_contents_on_paper_id"
+  end
 
   create_table "fields", force: :cascade do |t|
     t.string "name"
