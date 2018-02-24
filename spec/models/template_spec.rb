@@ -5,6 +5,7 @@ RSpec.describe Template, type: :model do
   	@template = Template.new
 	  @template.name = "Dummy name"
 	  @template.description = "Dummy description"
+    @template.is_active = true
   end
 
   describe "methods" do
@@ -97,6 +98,22 @@ RSpec.describe Template, type: :model do
     end
     it "sections" do
       expect(@template.sections).to be_a_kind_of(ActiveRecord::Associations::CollectionProxy)
+    end
+  end
+
+  describe "acts as list" do
+    before(:all) do
+      Template.new({:name => "One", :description => "This item acts as a list", :is_active => true}).save
+      Template.new({:name => "Two", :description => "This item acts as a list", :is_active => true}).save
+    end
+    it "add at top" do
+      expect(Template.all.first.name).to eq("One")
+      expect(Template.all.last.name).to eq("Two")
+    end
+    it "move to bottom" do
+      Template.all.first.move_to_bottom
+      expect(Template.all.first.name).to eq("Two")
+      expect(Template.all.last.name).to eq("One")
     end
   end
 end
