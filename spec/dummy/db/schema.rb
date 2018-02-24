@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_24_141827) do
+ActiveRecord::Schema.define(version: 2018_02_24_142002) do
 
   create_table "fields", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2018_02_24_141827) do
     t.string "close_tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "papers", force: :cascade do |t|
+    t.string "name"
+    t.string "hash_name"
+    t.integer "user_id"
+    t.integer "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["template_id"], name: "index_papers_on_template_id"
+    t.index ["user_id"], name: "index_papers_on_user_id"
   end
 
   create_table "section_fields", force: :cascade do |t|
