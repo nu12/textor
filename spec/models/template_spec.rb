@@ -22,6 +22,13 @@ RSpec.describe Template, type: :model do
   	  @template.save
   	  expect(Template.all.count).to be(count + 1)
   	end
+
+    it "active" do
+      Template.new({:name => "One", :is_active => true}).save(validate: false)
+      Template.new({:name => "Two", :is_active => true}).save(validate: false)
+      Template.new({:name => "Three", :is_active => false}).save(validate: false)
+      expect(Template.active.count).to eq(2)
+    end
   end
 
   describe "validations" do
